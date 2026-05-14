@@ -1,699 +1,325 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blood Link – United for Blood in Need</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
-  <style>
-    /* Extra styles for new pages matching the existing design */
-    .auth-wrap { max-width: 480px; margin: 60px auto; background: #fff; border-radius: 14px; box-shadow: 0 4px 30px rgba(0,0,0,0.10); padding: 44px 40px; }
-    .auth-wrap h2 { font-size: 26px; font-weight: 800; color: #b91c1c; margin-bottom: 6px; }
-    .auth-wrap p.sub { color: #888; font-size: 14px; margin-bottom: 28px; }
-    .auth-wrap label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 5px; color: #444; margin-top: 16px; }
-    .auth-wrap input, .auth-wrap select { width: 100%; padding: 11px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px; font-size: 15px; font-family: inherit; transition: border 0.2s; }
-    .auth-wrap input:focus, .auth-wrap select:focus { outline: none; border-color: #b91c1c; }
-    .auth-wrap .btn-submit { width: 100%; margin-top: 24px; padding: 13px; background: #b91c1c; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 800; cursor: pointer; letter-spacing: 0.3px; }
-    .auth-wrap .btn-submit:hover { background: #991b1b; }
-    .auth-msg { text-align: center; margin-top: 14px; padding: 11px; border-radius: 8px; font-weight: 700; display: none; }
-    .auth-msg.success { background: #dcfce7; color: #166534; display: block; }
-    .auth-msg.error { background: #fee2e2; color: #991b1b; display: block; }
-    .auth-link { text-align: center; margin-top: 18px; font-size: 14px; color: #666; }
-    .auth-link a { color: #b91c1c; font-weight: 700; text-decoration: none; }
-    .emergency-banner { background: #b91c1c; color: white; text-align: center; padding: 12px; font-weight: 800; font-size: 16px; letter-spacing: 0.5px; }
-    /* Real donor results area */
-    #real-donors-grid .donor-card { animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
-    .no-result { text-align: center; padding: 40px; color: #888; font-size: 16px; }
-    .loading-txt { text-align: center; padding: 30px; color: #b91c1c; font-weight: 700; }
-  </style>
-</head>
-<body>
-
-<div class="topbar">
-  <span class="topbar-contact">📞 +977 974525045</span>
-  <span class="topbar-contact">✉️ info@bloodlink.com</span>
-  <a href="#" class="topbar-cta" onclick="showPage('apply')">Apply as a Donor</a>
-</div>
-
-<nav>
-  <div class="logo">Blood<span>Link</span></div>
-  <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
-    <li><a href="#" onclick="showPage('donor')" id="nav-donor">Donor</a></li>
-    <li><a href="#" onclick="showPage('blog')" id="nav-blog">Blog</a></li>
-    <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
-    <li><a href="#" onclick="showPage('banks')" id="nav-banks">Blood Banks</a></li>
-    <li><a href="#" onclick="showPage('emergency')" id="nav-emergency" style="color:#e74c3c;font-weight:800;">🚨 Emergency</a></li>
-    <li><a href="#" onclick="showPage('login')" id="nav-login">Login</a></li>
-    <li><a href="#" onclick="showPage('signup')" id="nav-signup">Sign Up</a></li>
-  </ul>
-  <a href="#" class="btn-apply-nav" onclick="showPage('apply')">Apply as a Donor</a>
-</nav>
-
-<!-- ═══════════════ HOME ═══════════════ -->
-<div id="page-home" class="page active">
-  <div class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Lend a Hand with <em>Blood Link</em> — United for Blood in Need</h1>
-      <p>Connecting blood donors across Nepal. Join thousands of compassionate individuals saving lives every day.</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="showPage('donor')">Find a Donor</a>
-        <a href="#" class="btn-ghost" onclick="showPage('apply')">Become a Donor</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Link — Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="container top-bar__inner">
+        <span class="top-bar__item">
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.21z"
+            />
+          </svg>
+          +977 974525045
+        </span>
+        <span class="top-bar__item">
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+          info@bloodlink.com
+        </span>
       </div>
     </div>
-  </div>
 
-  <section class="section section-alt">
-    <h2 class="section-title">Available Blood <span class="red-accent">Donors</span></h2>
-    <p class="section-sub">Real-time availability of blood donors across Nepal, by blood group.</p>
-    <!-- Blood counts loaded live from database -->
-    <div class="blood-grid" id="home-blood-grid">
-      <div class="blood-card"><div class="blood-type">A <sup>+ve</sup></div><div class="blood-count" id="count-A+">...</div></div>
-      <div class="blood-card"><div class="blood-type">A <sup>-ve</sup></div><div class="blood-count" id="count-A-">...</div></div>
-      <div class="blood-card"><div class="blood-type">B <sup>+ve</sup></div><div class="blood-count" id="count-B+">...</div></div>
-      <div class="blood-card"><div class="blood-type">B <sup>-ve</sup></div><div class="blood-count" id="count-B-">...</div></div>
-      <div class="blood-card"><div class="blood-type">O <sup>+ve</sup></div><div class="blood-count" id="count-O+">...</div></div>
-      <div class="blood-card"><div class="blood-type">O <sup>-ve</sup></div><div class="blood-count" id="count-O-">...</div></div>
-      <div class="blood-card"><div class="blood-type">AB <sup>+ve</sup></div><div class="blood-count" id="count-AB+">...</div></div>
-      <div class="blood-card"><div class="blood-type">AB <sup>-ve</sup></div><div class="blood-count" id="count-AB-">...</div></div>
-    </div>
-  </section>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="#">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="32" height="32">
+              <circle cx="16" cy="16" r="16" fill="currentColor" />
+              <path
+                fill="#fff"
+                d="M16 8c-2.5 3-5 5.5-5 9a5 5 0 0010 0c0-3.5-2.5-6-5-9z"
+              />
+            </svg>
+          </span>
+          <span class="logo__text"
+            ><span class="logo__blood">Blood</span> Link</span
+          >
+        </a>
 
-  <div class="process-strip">
-    <h3>The Blood Donation Process</h3>
-    <div class="process-steps">
-      <div class="process-step"><div class="step-num">1</div><div class="step-label">Register</div></div>
-      <div class="step-arrow">→</div>
-      <div class="process-step"><div class="step-num">2</div><div class="step-label">Screening</div></div>
-      <div class="step-arrow">→</div>
-      <div class="process-step"><div class="step-num">3</div><div class="step-label">Donate</div></div>
-      <div class="step-arrow">→</div>
-      <div class="process-step"><div class="step-num">4</div><div class="step-label">Rest</div></div>
-      <div class="step-arrow">→</div>
-      <div class="process-step"><div class="step-num">5</div><div class="step-label">Save Lives</div></div>
-    </div>
-  </div>
+        <nav class="nav" aria-label="Main">
+          <button
+            type="button"
+            class="nav__toggle"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span></span><span></span><span></span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <ul id="nav-menu" class="nav__list">
+            <li><a href="#" class="nav__link nav__link--active">Home</a></li>
+            <li><a href="#" class="nav__link">About</a></li>
+            <li><a href="#" class="nav__link">Donor</a></li>
+            <li><a href="#" class="nav__link">Blog</a></li>
+            <li><a href="#" class="nav__link">Contact</a></li>
+            <li><a href="#" class="nav__link">Blood Banks</a></li>
+          </ul>
+        </nav>
 
-  <section class="section">
-    <h2 class="section-title">Latest <span class="red-accent">News</span></h2>
-    <p class="section-sub">Latest News on Blood Donation: Stay Informed and Make a Difference</p>
-    <div class="news-grid">
-      <div class="news-card">
-        <img class="news-img" src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&q=70" alt="Why Donate Blood" />
-        <div class="news-body"><div class="news-date">23 Feb 2023</div><div class="news-title">Why Donate Blood?</div><div class="news-excerpt">Donating blood saves lives and helps patients during emergencies. One donation can save up to three lives.</div></div>
-      </div>
-      <div class="news-card">
-        <img class="news-img" src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600&q=70" alt="Benefits" />
-        <div class="news-body"><div class="news-date">12 Nov 2023</div><div class="news-title">Benefits of Blood Donation</div><div class="news-excerpt">Beyond saving lives, blood donation offers real health benefits — stimulating blood cell production.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span><p>Welcome to Blood Donors Unity, operated by CBDC Nepal. We are dedicated to saving lives through blood donation.</p><div class="footer-contact-item">📞 +977 974525045</div><div class="footer-contact-item">✉️ info@bloodlink.com</div></div>
-      <div class="footer-nav"><h5>Links</h5><ul><li><a href="#" onclick="showPage('donor')">Donor</a></li><li><a href="#" onclick="showPage('blog')">Blog</a></li><li><a href="#" onclick="showPage('about')">About</a></li><li><a href="#" onclick="showPage('contact')">Contact</a></li></ul></div>
-      <div class="footer-nav"><h5>Support</h5><ul><li><a href="#">Support Center</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
-    </div>
-    <div class="newsletter-bar"><p>Subscribe for blood donation updates and news</p><input type="email" placeholder="Enter email address" /><button class="btn-subscribe">Subscribe</button></div>
-    <div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div>
-  </footer>
-</div>
-
-<!-- ═══════════════ ABOUT ═══════════════ -->
-<div id="page-about" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>About</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>About</span></div>
-  <section class="section">
-    <h2 class="section-title">About <span class="red-accent">Blood Link</span></h2>
-    <div class="about-layout">
-      <div class="about-img-block">
-        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&q=80" alt="About Blood Link" />
-        <div class="about-stat-row">
-          <div class="about-stat"><div class="about-stat-num">200+</div><div class="about-stat-label">Active Donors</div></div>
-          <div class="about-stat"><div class="about-stat-num">77</div><div class="about-stat-label">Districts</div></div>
-          <div class="about-stat"><div class="about-stat-num">3k+</div><div class="about-stat-label">Lives Saved</div></div>
+        <div class="site-header__actions">
+          <a class="btn btn--primary" href="#">Apply as a Donor</a>
         </div>
       </div>
-      <div class="about-text-block">
-        <h3>Connecting Donors Nationwide</h3>
-        <p>Blood donors unity is a revolutionary online platform designed to unite donors and recipients in a lifesaving mission across every corner of Nepal.</p>
-        <h3 style="margin-top:20px">Behind the Project</h3>
-        <p>Blood Donors Unity is a visionary initiative founded by CBDC Nepal, dedicated to promoting continuous blood donation efforts across Nepal.</p>
-        <div class="about-badges"><span class="badge">🏥 Nationwide Network</span><span class="badge">🤝 Community Driven</span><span class="badge">⚡ Instant Connect</span><span class="badge">🇳🇵 CBDC Nepal</span></div>
-      </div>
-    </div>
-  </section>
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span><p>Welcome to Blood Donors Unity, operated by CBDC Nepal.</p></div><div class="footer-nav"><h5>Links</h5><ul><li><a href="#" onclick="showPage('donor')">Donor</a></li><li><a href="#" onclick="showPage('about')">About</a></li></ul></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
+    </header>
 
-<!-- ═══════════════ DONOR SEARCH (connected to database) ═══════════════ -->
-<div id="page-donor" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Find Blood Donors</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Donor</span></div>
+    <main>
+      <section class="hero">
+        <div class="hero__bg" role="img" aria-label="Blood donation"></div>
+        <div class="hero__overlay"></div>
+        <div class="container hero__content">
+          <h1 class="hero__title">
+            Lend a Hand with Blood Link — United for Blood in Need
+          </h1>
+        </div>
+      </section>
 
-  <section class="section section-alt">
-    <div class="search-wrap">
-      <select id="search-blood">
-        <option value="">All Blood Groups</option>
-        <option value="A+">A +ve</option>
-        <option value="A-">A -ve</option>
-        <option value="B+">B +ve</option>
-        <option value="B-">B -ve</option>
-        <option value="O+">O +ve</option>
-        <option value="O-">O -ve</option>
-        <option value="AB+">AB +ve</option>
-        <option value="AB-">AB -ve</option>
-      </select>
-      <select id="search-city">
-        <option value="">All Districts</option>
-        <option value="Kathmandu">Kathmandu</option>
-        <option value="Lalitpur">Lalitpur</option>
-        <option value="Bhaktapur">Bhaktapur</option>
-        <option value="Pokhara">Pokhara</option>
-        <option value="Butwal">Butwal</option>
-        <option value="Biratnagar">Biratnagar</option>
-        <option value="Chitwan">Chitwan</option>
-        <option value="Dharan">Dharan</option>
-      </select>
-      <button class="btn-search" onclick="searchDonors()">Search</button>
-    </div>
-
-    <!-- Real results from database -->
-    <div id="real-donors-grid" class="donors-grid">
-      <p class="loading-txt">Loading donors from database...</p>
-    </div>
-  </section>
-
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span><p>Welcome to Blood Donors Unity, operated by CBDC Nepal.</p></div><div class="footer-nav"><h5>Links</h5><ul><li><a href="#" onclick="showPage('donor')">Donor</a></li><li><a href="#" onclick="showPage('about')">About</a></li></ul></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ BLOG ═══════════════ -->
-<div id="page-blog" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Blog</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Blog</span></div>
-  <section class="section">
-    <h2 class="section-title">Latest <span class="red-accent">News</span></h2>
-    <p class="section-sub">Latest News on Blood Donation: Stay Informed and Make a Difference</p>
-    <div class="news-grid">
-      <div class="news-card"><img class="news-img" src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&q=70" alt="" /><div class="news-body"><div class="news-date">23 Feb 2023</div><div class="news-title">Why Donate Blood?</div><div class="news-excerpt">Donating blood saves lives and helps patients during emergencies. One donation can save up to three lives.</div></div></div>
-      <div class="news-card"><img class="news-img" src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600&q=70" alt="" /><div class="news-body"><div class="news-date">12 Nov 2023</div><div class="news-title">Benefits of Blood Donation</div><div class="news-excerpt">Beyond saving lives, blood donation offers real health benefits to donors too.</div></div></div>
-    </div>
-  </section>
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ CONTACT ═══════════════ -->
-<div id="page-contact" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Contact Us</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Contact Us</span></div>
-  <section class="section section-alt">
-    <div class="contact-layout">
-      <div>
-        <h2 class="section-title">Contact with <span class="red-accent">us</span></h2>
-        <p class="section-sub" style="margin-bottom:24px">Get in touch for any kind of help and information.</p>
-        <form class="contact-form">
-          <div class="form-row">
-            <div class="form-group"><label>Name *</label><input type="text" placeholder="Full Name" /></div>
-            <div class="form-group"><label>Email *</label><input type="email" placeholder="Email Address" /></div>
+      <section class="section donors">
+        <div class="container">
+          <h2 class="section__title">Available Blood Donors</h2>
+          <div class="donor-grid">
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">A +ve</span
+              ><span class="donor-card__count">(4)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">A -ve</span
+              ><span class="donor-card__count">(6)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">O +ve</span
+              ><span class="donor-card__count">(5)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">O -ve</span
+              ><span class="donor-card__count">(3)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">B +ve</span
+              ><span class="donor-card__count">(6)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">B -ve</span
+              ><span class="donor-card__count">(2)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">AB +ve</span
+              ><span class="donor-card__count">(7)</span></a
+            >
+            <a href="#" class="donor-card"
+              ><span class="donor-card__type">AB -ve</span
+              ><span class="donor-card__count">(3)</span></a
+            >
           </div>
-          <div class="form-group"><label>Subject</label><input type="text" placeholder="Subject" /></div>
-          <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Your message..."></textarea></div>
-          <button type="button" class="btn-submit">Send Message</button>
-        </form>
-      </div>
-      <div class="contact-info-block">
-        <h4>Contact Information</h4>
-        <p>📞 +977 974525045</p>
-        <p>✉️ info@bloodlink.com</p>
-        <p>📍 Kathmandu, Nepal</p>
-      </div>
-    </div>
-  </section>
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ APPLY AS DONOR (connected to database) ═══════════════ -->
-<div id="page-apply" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Apply as a Donor</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Apply as a Donor</span></div>
-
-  <section class="section section-alt">
-    <div class="apply-form">
-      <div class="form-section-label">Personal Information</div>
-      <div class="form-row" style="margin-bottom:14px">
-        <div class="form-group"><label>Name *</label><input type="text" id="apply-name" placeholder="Enter name" /></div>
-        <div class="form-group"><label>Email *</label><input type="email" id="apply-email" placeholder="Enter email" /></div>
-      </div>
-      <div class="form-row" style="margin-bottom:20px">
-        <div class="form-group"><label>Phone *</label><input type="tel" id="apply-phone" placeholder="Enter phone" /></div>
-        <div class="form-group"><label>Password *</label><input type="password" id="apply-password" placeholder="Create a password" /></div>
-      </div>
-
-      <div class="form-section-label">Donor Information</div>
-      <div class="form-row" style="margin-bottom:14px">
-        <div class="form-group">
-          <label>Blood Group *</label>
-          <select id="apply-blood">
-            <option value="">Select one</option>
-            <option value="A+">A +ve</option>
-            <option value="A-">A -ve</option>
-            <option value="B+">B +ve</option>
-            <option value="B-">B -ve</option>
-            <option value="O+">O +ve</option>
-            <option value="O-">O -ve</option>
-            <option value="AB+">AB +ve</option>
-            <option value="AB-">AB -ve</option>
-          </select>
         </div>
-        <div class="form-group"><label>Age *</label><input type="number" id="apply-age" placeholder="Enter age" min="18" max="65" /></div>
-      </div>
-      <div class="form-row" style="margin-bottom:20px">
-        <div class="form-group">
-          <label>District *</label>
-          <select id="apply-city">
-            <option value="">Choose one</option>
-            <option value="Kathmandu">Kathmandu</option>
-            <option value="Lalitpur">Lalitpur</option>
-            <option value="Bhaktapur">Bhaktapur</option>
-            <option value="Pokhara">Pokhara</option>
-            <option value="Chitwan">Chitwan</option>
-            <option value="Butwal">Butwal</option>
-            <option value="Biratnagar">Biratnagar</option>
-            <option value="Dharan">Dharan</option>
-          </select>
+      </section>
+
+      <section class="section process">
+        <div class="process__bg" aria-hidden="true"></div>
+        <div class="container process__inner">
+          <h2 class="section__title section__title--on-dark">
+            The Blood Donation Process
+          </h2>
+          <ol class="process-steps">
+            <li class="process-step">
+              <span class="process-step__num">1</span>
+              <span class="process-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                  <path
+                    fill="currentColor"
+                    d="M24 40c-6 0-11-4.5-11-10 0-5 4-9 11-16 7 7 11 11 11 16 0 5.5-5 10-11 10zm0-26c-4.5 4-8 7.5-8 11 0 3.5 3.5 7 8 7s8-3.5 8-7c0-3.5-3.5-7-8-11z"
+                  />
+                </svg>
+              </span>
+              <span class="process-step__label">Refreshment and Recovery</span>
+            </li>
+            <li class="process-step">
+              <span class="process-step__num">2</span>
+              <span class="process-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                  <path
+                    fill="currentColor"
+                    d="M24 8c-4 6-10 10-10 16a10 10 0 0020 0c0-6-6-10-10-16z"
+                  />
+                </svg>
+              </span>
+              <span class="process-step__label">Blood Donation</span>
+            </li>
+            <li class="process-step">
+              <span class="process-step__num">3</span>
+              <span class="process-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                  <path
+                    fill="currentColor"
+                    d="M14 8h20a2 2 0 012 2v28a2 2 0 01-2 2H14a2 2 0 01-2-2V10a2 2 0 012-2zm2 4v22h16V12H16zm4 26h8v4h-8v-4z"
+                  />
+                </svg>
+              </span>
+              <span class="process-step__label">Health History</span>
+            </li>
+            <li class="process-step">
+              <span class="process-step__num">4</span>
+              <span class="process-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                  <path
+                    fill="currentColor"
+                    d="M24 10a8 8 0 100 16 8 8 0 000-16zm0 18c-5 0-14 2.5-14 7v3h28v-3c0-4.5-9-7-14-7z"
+                  />
+                </svg>
+              </span>
+              <span class="process-step__label">Registration</span>
+            </li>
+          </ol>
         </div>
-        <div class="form-group">
-          <label>Gender *</label>
-          <select id="apply-gender">
-            <option value="">Choose one</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
+      </section>
+
+      <section class="section news">
+        <div class="container">
+          <h2 class="section__title">Latest News</h2>
+          <p class="section__subtitle">
+            Latest News on Blood Donation: Stay Informed and Make a Difference
+          </p>
+          <div class="news-grid">
+            <article class="news-card">
+              <img
+                class="news-card__img"
+                src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&q=80"
+                alt=""
+                width="600"
+                height="340"
+              />
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2023-02-23"
+                  >23 Feb 2023</time
+                >
+                <h3 class="news-card__title">
+                  <a href="#">Why Donate Blood?</a>
+                </h3>
+              </div>
+            </article>
+            <article class="news-card">
+              <img
+                class="news-card__img"
+                src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80"
+                alt=""
+                width="600"
+                height="340"
+              />
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2023-11-12"
+                  >12 Nov 2023</time
+                >
+                <h3 class="news-card__title">
+                  <a href="#">Benefits of Blood Donation</a>
+                </h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__top">
+        <span class="site-footer__contact">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.21z"
+            />
+          </svg>
+          +977 974525045
+        </span>
+        <span class="site-footer__contact">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+          info@bloodlink.com
+        </span>
+      </div>
+      <hr class="site-footer__rule container" />
+      <div class="container site-footer__grid">
+        <div class="site-footer__col">
+          <p class="site-footer__about">
+            Welcome to Blood Donors Unity — we connect donors with those in need
+            and help strengthen the blood donation community across Nepal.
+          </p>
+          <form class="newsletter" action="#" method="post">
+            <label class="visually-hidden" for="news-email">Email</label>
+            <input
+              id="news-email"
+              class="newsletter__input"
+              type="email"
+              name="email"
+              placeholder="Enter email address"
+            />
+            <button
+              type="submit"
+              class="newsletter__btn"
+              aria-label="Subscribe"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2v7z" />
+              </svg>
+            </button>
+          </form>
+        </div>
+        <div class="site-footer__col">
+          <h3 class="site-footer__heading">Links</h3>
+          <ul class="site-footer__list">
+            <li><a href="#">Donor</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h3 class="site-footer__heading">Support</h3>
+          <ul class="site-footer__list">
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Apply as a Doctor</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
         </div>
       </div>
+      <hr class="site-footer__rule container site-footer__rule--bottom" />
+    </footer>
 
-      <div class="form-section-label">Frequently Asked Questions</div>
-      <div class="faq-grid" style="margin-bottom:28px">
-        <details class="faq-item"><summary class="faq-q">How long does blood donation take?</summary><p class="faq-a">About 45–60 minutes total, including registration, health screening, the donation itself (8–10 min), and a short rest.</p></details>
-        <details class="faq-item"><summary class="faq-q">Is donating blood safe?</summary><p class="faq-a">Completely safe. Only sterile, single-use equipment is used. You cannot contract any disease by donating blood.</p></details>
-        <details class="faq-item"><summary class="faq-q">What are the eligibility requirements?</summary><p class="faq-a">You must be at least 18, weigh at least 50 kg, be in good health, and meet other criteria checked during screening.</p></details>
-      </div>
-
-      <button type="button" class="btn-submit btn-submit-full" onclick="applyAsDonor()">Apply Now</button>
-      <div id="apply-msg" class="auth-msg"></div>
-    </div>
-  </section>
-
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ BLOOD BANKS ═══════════════ -->
-<div id="page-banks" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Blood Banks</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Blood Banks</span></div>
-  <section class="section">
-    <h2 class="section-title">Blood Banks Inside <span class="red-accent">Kathmandu Valley</span></h2>
-    <p class="section-sub">Find the nearest blood bank for donations, transfusions, and emergency services.</p>
-    <div class="blood-bank-list">
-      <div class="bank-card"><h4>Nepal Red Cross Society Central Blood Transfusion Service</h4><p>Kalimati, Kathmandu | Open 24 hours, 7 days a week</p><div class="bank-meta"><span>📞 01-4270679</span><span>🕐 24/7</span><span>📍 Kalimati, Ktm</span></div></div>
-      <div class="bank-card"><h4>Bir Hospital Blood Bank</h4><p>Mahaboudha, Kathmandu | Government hospital blood bank</p><div class="bank-meta"><span>📞 01-4221119</span><span>🕐 8am–6pm</span><span>📍 Mahaboudha, Ktm</span></div></div>
-      <div class="bank-card"><h4>Tribhuvan University Teaching Hospital Blood Bank</h4><p>Maharajgunj, Kathmandu | Academic hospital, comprehensive services</p><div class="bank-meta"><span>📞 01-4412303</span><span>🕐 7am–7pm</span><span>📍 Maharajgunj, Ktm</span></div></div>
-      <div class="bank-card"><h4>Patan Hospital Blood Bank</h4><p>Lagankhel, Lalitpur | Serving Lalitpur and surrounding districts</p><div class="bank-meta"><span>📞 01-5522278</span><span>🕐 8am–5pm</span><span>📍 Lagankhel, Lalitpur</span></div></div>
-    </div>
-    <h2 class="section-title" style="margin-top:48px">Blood Banks Outside <span class="red-accent">Kathmandu Valley</span></h2>
-    <div class="blood-bank-list" style="margin-top:20px">
-      <div class="bank-card"><h4>Pokhara Red Cross Blood Bank</h4><p>Pokhara, Gandaki Province</p><div class="bank-meta"><span>📞 061-520066</span><span>🕐 8am–6pm</span><span>📍 Pokhara, Kaski</span></div></div>
-      <div class="bank-card"><h4>Bharatpur Hospital Blood Bank</h4><p>Bharatpur, Chitwan | Provincial hospital blood bank</p><div class="bank-meta"><span>📞 056-523555</span><span>🕐 7am–7pm</span><span>📍 Bharatpur, Chitwan</span></div></div>
-    </div>
-  </section>
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ 🚨 EMERGENCY (connected to database) ═══════════════ -->
-<div id="page-emergency" class="page">
-  <div class="emergency-banner">🚨 Emergency Blood Request — Nearby donors will be notified immediately</div>
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>🚨 Emergency Request</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Emergency</span></div>
-
-  <section class="section section-alt">
-    <div class="auth-wrap" style="max-width:580px">
-      <h2>Emergency Blood Request</h2>
-      <p class="sub">Fill this form and matching donors in your city will be notified right away.</p>
-
-      <label>Patient Name *</label>
-      <input type="text" id="em-patient" placeholder="e.g. Ram Thapa" />
-
-      <label>Blood Group Needed *</label>
-      <select id="em-blood">
-        <option value="">Select Blood Group</option>
-        <option value="A+">A +ve</option>
-        <option value="A-">A -ve</option>
-        <option value="B+">B +ve</option>
-        <option value="B-">B -ve</option>
-        <option value="O+">O +ve</option>
-        <option value="O-">O -ve</option>
-        <option value="AB+">AB +ve</option>
-        <option value="AB-">AB -ve</option>
-      </select>
-
-      <label>Hospital Name *</label>
-      <input type="text" id="em-hospital" placeholder="e.g. Bir Hospital" />
-
-      <label>City / District *</label>
-      <select id="em-city">
-        <option value="">Select City</option>
-        <option value="Kathmandu">Kathmandu</option>
-        <option value="Lalitpur">Lalitpur</option>
-        <option value="Bhaktapur">Bhaktapur</option>
-        <option value="Pokhara">Pokhara</option>
-        <option value="Chitwan">Chitwan</option>
-        <option value="Butwal">Butwal</option>
-        <option value="Biratnagar">Biratnagar</option>
-        <option value="Dharan">Dharan</option>
-      </select>
-
-      <label>Contact Number *</label>
-      <input type="text" id="em-contact" placeholder="e.g. 9801234567" />
-
-      <label>Additional Message (optional)</label>
-      <input type="text" id="em-message" placeholder="Any extra details..." />
-
-      <button class="btn-submit" style="background:#b91c1c" onclick="sendEmergency()">🚨 Send Emergency Request</button>
-      <div id="em-msg" class="auth-msg"></div>
-    </div>
-  </section>
-
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ LOGIN (connected to database) ═══════════════ -->
-<div id="page-login" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Login</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Login</span></div>
-
-  <section class="section section-alt">
-    <div class="auth-wrap">
-      <h2>Welcome Back 👋</h2>
-      <p class="sub">Login to manage your donor profile</p>
-
-      <label>Email Address *</label>
-      <input type="email" id="login-email" placeholder="e.g. ram@gmail.com" />
-
-      <label>Password *</label>
-      <input type="password" id="login-password" placeholder="Your password" />
-
-      <button class="btn-submit" onclick="doLogin()">Login</button>
-      <div id="login-msg" class="auth-msg"></div>
-
-      <div class="auth-link">Don't have an account? <a href="#" onclick="showPage('signup')">Sign up here</a></div>
-    </div>
-  </section>
-
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ SIGNUP (connected to database) ═══════════════ -->
-<div id="page-signup" class="page">
-  <div class="hero-mini" style="background-image: url('https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=1400&q=80');"><div class="hero-mini-overlay"></div><div class="hero-mini-content"><h2>Create Account</h2></div></div>
-  <div class="breadcrumb-bar"><a href="#" onclick="showPage('home')">Home</a> — <span>Sign Up</span></div>
-
-  <section class="section section-alt">
-    <div class="auth-wrap">
-      <h2>Create Account</h2>
-      <p class="sub">Join Blood Link and help save lives across Nepal</p>
-
-      <label>Full Name *</label>
-      <input type="text" id="signup-name" placeholder="e.g. Ram Sharma" />
-
-      <label>Email Address *</label>
-      <input type="email" id="signup-email" placeholder="e.g. ram@gmail.com" />
-
-      <label>Password *</label>
-      <input type="password" id="signup-password" placeholder="Create a strong password" />
-
-      <label>Phone Number *</label>
-      <input type="text" id="signup-phone" placeholder="e.g. 9801234567" />
-
-      <label>City / District *</label>
-      <select id="signup-city">
-        <option value="">Select your city</option>
-        <option value="Kathmandu">Kathmandu</option>
-        <option value="Lalitpur">Lalitpur</option>
-        <option value="Bhaktapur">Bhaktapur</option>
-        <option value="Pokhara">Pokhara</option>
-        <option value="Chitwan">Chitwan</option>
-        <option value="Butwal">Butwal</option>
-        <option value="Biratnagar">Biratnagar</option>
-        <option value="Dharan">Dharan</option>
-      </select>
-
-      <button class="btn-submit" onclick="doSignup()">Create Account</button>
-      <div id="signup-msg" class="auth-msg"></div>
-
-      <div class="auth-link">Already have an account? <a href="#" onclick="showPage('login')">Login here</a></div>
-    </div>
-  </section>
-
-  <div class="footer-contact-bar"><span>📞 +977 974525045</span><span>✉️ info@bloodlink.com</span></div>
-  <footer><div class="footer-grid"><div class="footer-brand"><span class="footer-logo">Blood<span>Link</span></span></div></div><div class="footer-bottom">© 2024 Blood Link / CBDC Nepal. All rights reserved.</div></footer>
-</div>
-
-<!-- ═══════════════ JAVASCRIPT — connects all forms to Django database ═══════════════ -->
-<script>
-
-// ── Page switcher (same as your original) ─────────────────────────────────
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const t = document.getElementById('nav-' + id);
-  if (t) t.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ── Helper: show message below a form ─────────────────────────────────────
-function showMsg(id, text, type) {
-  const el = document.getElementById(id);
-  el.textContent = text;
-  el.className = 'auth-msg ' + type;
-}
-
-// ── LOAD: Blood group counts from database on home page ───────────────────
-async function loadBloodCounts() {
-  const groups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
-  for (const g of groups) {
-    try {
-      const res = await fetch('/api/donors/search?blood_group=' + encodeURIComponent(g));
-      const data = await res.json();
-      const el = document.getElementById('count-' + g);
-      if (el) el.textContent = data.count + ' donors';
-    } catch(e) {
-      const el = document.getElementById('count-' + g);
-      if (el) el.textContent = '0 donors';
-    }
-  }
-}
-
-// ── SEARCH: Find donors from database ────────────────────────────────────
-async function searchDonors() {
-  const blood = document.getElementById('search-blood').value;
-  const city  = document.getElementById('search-city').value;
-  const grid  = document.getElementById('real-donors-grid');
-
-  grid.innerHTML = '<p class="loading-txt">Searching donors...</p>';
-
-  let url = '/api/donors/search?';
-  if (blood) url += 'blood_group=' + encodeURIComponent(blood) + '&';
-  if (city)  url += 'city=' + encodeURIComponent(city);
-
-  const res  = await fetch(url);
-  const data = await res.json();
-
-  if (data.donors.length === 0) {
-    grid.innerHTML = '<p class="no-result">No donors found. Try different filters.</p>';
-    return;
-  }
-
-  grid.innerHTML = '';
-  data.donors.forEach(d => {
-    const card = document.createElement('div');
-    card.className = 'donor-card';
-    card.innerHTML = `
-      <div class="donor-avatar">👤</div>
-      <div class="donor-info">
-        <h4>${d.name}</h4>
-        <div class="donor-meta">📍 ${d.city}</div>
-        <div class="donor-meta">📞 ${d.phone}</div>
-        <span class="donor-group">${d.blood_group}</span>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-// ── SIGNUP: Save new user to database ─────────────────────────────────────
-async function doSignup() {
-  const name     = document.getElementById('signup-name').value.trim();
-  const email    = document.getElementById('signup-email').value.trim();
-  const password = document.getElementById('signup-password').value;
-  const phone    = document.getElementById('signup-phone').value.trim();
-  const city     = document.getElementById('signup-city').value;
-
-  if (!name || !email || !password || !phone || !city) {
-    showMsg('signup-msg', 'Please fill all fields!', 'error');
-    return;
-  }
-
-  const res = await fetch('/api/users/signup', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, password, phone, city })
-  });
-  const data = await res.json();
-
-  if (res.ok) {
-    // Save user info in browser memory
-    localStorage.setItem('user_id', data.user_id);
-    localStorage.setItem('user_name', name);
-    showMsg('signup-msg', 'Account created! You can now apply as a donor.', 'success');
-    setTimeout(() => showPage('apply'), 1800);
-  } else {
-    showMsg('signup-msg', data.error, 'error');
-  }
-}
-
-// ── LOGIN: Check user in database ─────────────────────────────────────────
-async function doLogin() {
-  const email    = document.getElementById('login-email').value.trim();
-  const password = document.getElementById('login-password').value;
-
-  if (!email || !password) {
-    showMsg('login-msg', 'Please fill all fields!', 'error');
-    return;
-  }
-
-  const res = await fetch('/api/users/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
-  });
-  const data = await res.json();
-
-  if (res.ok) {
-    localStorage.setItem('user_id', data.user_id);
-    localStorage.setItem('user_name', data.name);
-    showMsg('login-msg', 'Login successful! Welcome back, ' + data.name + '!', 'success');
-    setTimeout(() => showPage('home'), 1800);
-  } else {
-    showMsg('login-msg', data.error, 'error');
-  }
-}
-
-// ── APPLY AS DONOR: Signup + register as donor in one step ───────────────
-async function applyAsDonor() {
-  const name     = document.getElementById('apply-name').value.trim();
-  const email    = document.getElementById('apply-email').value.trim();
-  const password = document.getElementById('apply-password').value;
-  const phone    = document.getElementById('apply-phone').value.trim();
-  const blood    = document.getElementById('apply-blood').value;
-  const age      = document.getElementById('apply-age').value;
-  const city     = document.getElementById('apply-city').value;
-
-  if (!name || !email || !password || !phone || !blood || !age || !city) {
-    showMsg('apply-msg', 'Please fill all required fields!', 'error');
-    return;
-  }
-
-  // Step 1: Create user account
-  const signupRes = await fetch('/api/users/signup', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, password, phone, city })
-  });
-  const signupData = await signupRes.json();
-
-  if (!signupRes.ok) {
-    showMsg('apply-msg', signupData.error, 'error');
-    return;
-  }
-
-  const user_id = signupData.user_id;
-
-  // Step 2: Register as donor using the new user_id
-  const donorRes = await fetch('/api/donors/register', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ user_id, blood_group: blood, age: parseInt(age), city })
-  });
-  const donorData = await donorRes.json();
-
-  if (donorRes.ok) {
-    localStorage.setItem('user_id', user_id);
-    localStorage.setItem('user_name', name);
-    showMsg('apply-msg', 'You are now a registered Blood Link donor! Thank you 🩸', 'success');
-    loadBloodCounts(); // refresh counts on home page
-  } else {
-    showMsg('apply-msg', donorData.error, 'error');
-  }
-}
-
-// ── EMERGENCY: Send emergency request to database ─────────────────────────
-async function sendEmergency() {
-  const patient_name = document.getElementById('em-patient').value.trim();
-  const blood_group  = document.getElementById('em-blood').value;
-  const hospital     = document.getElementById('em-hospital').value.trim();
-  const city         = document.getElementById('em-city').value;
-  const contact      = document.getElementById('em-contact').value.trim();
-  const message      = document.getElementById('em-message').value.trim();
-
-  if (!patient_name || !blood_group || !hospital || !city || !contact) {
-    showMsg('em-msg', 'Please fill all required fields!', 'error');
-    return;
-  }
-
-  const res = await fetch('/api/emergency/request', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ patient_name, blood_group, hospital, city, contact, message })
-  });
-  const data = await res.json();
-
-  if (res.ok) {
-    showMsg('em-msg', `Request sent! ${data.donors_notified} nearby donors have been notified. 🩸`, 'success');
-    // clear form
-    ['em-patient','em-hospital','em-contact','em-message'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('em-blood').value = '';
-    document.getElementById('em-city').value = '';
-  } else {
-    showMsg('em-msg', data.error, 'error');
-  }
-}
-
-// ── On page load: fetch real blood counts and load donors ─────────────────
-loadBloodCounts();
-searchDonors();
-
-// ── Pagination buttons (original behavior) ────────────────────────────────
-document.querySelectorAll('.page-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    this.closest('.pagination').querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-</script>
-</body>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav__toggle");
+        var list = document.getElementById("nav-menu");
+        if (!btn || !list) return;
+        btn.addEventListener("click", function () {
+          var open = list.classList.toggle("nav__list--open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      })();
+    </script>
+  </body>
 </html>
